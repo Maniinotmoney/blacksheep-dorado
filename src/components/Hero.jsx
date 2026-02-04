@@ -8,10 +8,73 @@ import heroXrayRoom from '../assets/hero_xray_room.jpg';
 import heroSurgeryLight from '../assets/hero_surgery_light.jpg';
 
 const Hero = () => {
+    const scrollContainerRef = React.useRef(null);
+
+    const lastScrollRef = React.useRef(0);
+    const velocityRef = React.useRef(0);
+    const rafIdRef = React.useRef(null);
+
+    React.useEffect(() => {
+        const scrollContainer = scrollContainerRef.current;
+        if (!scrollContainer) return;
+
+        // Auto-scroll logic
+        const scrollInterval = setInterval(() => {
+            if (scrollContainer.scrollWidth > scrollContainer.clientWidth) {
+                const cardWidth = scrollContainer.children[0].offsetWidth;
+                const gap = 24;
+                const scrollAmount = cardWidth + gap;
+                const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+
+                if (scrollContainer.scrollLeft >= maxScroll - 10) {
+                    scrollContainer.scrollTo({ left: 0, behavior: 'smooth' });
+                } else {
+                    scrollContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                }
+            }
+        }, 3000);
+
+        // Kinetic Skew Logic
+        const updateSkew = () => {
+            if (!scrollContainer) return;
+
+            const currentScroll = scrollContainer.scrollLeft;
+            const delta = currentScroll - lastScrollRef.current;
+
+            // Calculate velocity Tracking
+            velocityRef.current = delta;
+
+            // Apply skew: limit max skew to avoid breaking layout
+            const skewStrength = 0.2;
+            const maxSkew = 15;
+
+            let skew = velocityRef.current * skewStrength;
+
+            if (skew > maxSkew) skew = maxSkew;
+            if (skew < -maxSkew) skew = -maxSkew;
+
+            // Apply to children
+            Array.from(scrollContainer.children).forEach(item => {
+                // Using transform directly for smoothness
+                item.style.transform = `skewX(${-skew}deg)`;
+            });
+
+            lastScrollRef.current = currentScroll;
+            rafIdRef.current = requestAnimationFrame(updateSkew);
+        };
+
+        rafIdRef.current = requestAnimationFrame(updateSkew);
+
+        return () => {
+            clearInterval(scrollInterval);
+            if (rafIdRef.current) cancelAnimationFrame(rafIdRef.current);
+        };
+    }, []);
+
     return (
         <section className="hero" id="home">
             {/* Scattered Grid */}
-            <div className="grid-container">
+            <div className="grid-container" ref={scrollContainerRef}>
 
                 {/* Item 01 - Large Left */}
                 <div className="grid-item item-1">
