@@ -1,7 +1,7 @@
 /* Testimonials.css */
 .reviews-section {
     padding: 5rem 0;
-    background: linear-gradient(to bottom, #fff0f3, #ffffff);
+    background: linear-gradient(to bottom, var(--primary-fade), #ffffff);
 }
 
 .reviews-header {
