@@ -46,14 +46,12 @@
 .color-box-content {
     width: 100%;
     height: 100%;
-    /* background-color: #e31b23; */
+    background-color: #e31b23;
     overflow: hidden;
 }
 
 /* Helper Classes extracted from inline styles */
-.grayscale-image {
-    filter: grayscale(100%);
-}
+
 
 .blend-image {
     width: 100%;
@@ -164,6 +162,8 @@
     white-space: nowrap;
 }
 
+
+
 .big-text br {
     display: none;
 }
@@ -221,6 +221,8 @@
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         display: flex !important;
         /* Force all to show */
+        transition: transform 0.1s ease-out;
+        /* Smooth out the skew jitters */
     }
 
     .hero-image {
@@ -231,7 +233,7 @@
 
     /* Reset/Adjust specific item styles for mobile homogeneity */
     .color-box-content {
-        background-color: var(--primary);
+        background-color: red;
     }
 
     .item-1,
@@ -282,10 +284,12 @@
     }
 
     .big-text {
-        font-size: 18vw;
+        font-size: 5rem;
+        /* font-size: 18vw; */
         line-height: 1;
         /* Tighter leading for stacked text */
     }
+
 
     .big-text br {
         display: block;
