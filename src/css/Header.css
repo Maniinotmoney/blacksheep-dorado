@@ -1,0 +1,305 @@
+/* Header.css - Editorial/Minimal Style */
+.navbar {
+    position: fixed;
+    width: 100%;
+    z-index: 50;
+    transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    /* Smooth eased transition */
+    background-color: transparent;
+    padding: 1rem 0;
+    top: 0;
+    left: 50%;
+    /* Start centered */
+    transform: translateX(-50%);
+    /* Start centered */
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    /* Keep clean font */
+}
+
+/* Scrolled state for better visibility if needed, or keep transparent if editorial style demands */
+/* Scrolled state: Floating, Blur, 95vw, Top 10px */
+.navbar.shadow {
+    width: 95vw;
+    top: 10px;
+    background-color: rgba(255, 255, 255, 0.164);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: 25px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    padding: 1.2rem 0;
+    /* left & transform are inherited as 50% / -50% from base, so no jumping */
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    max-width: 100%;
+    /* Full width specifically for this style */
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+/* 1. Brand / Logo Area */
+.logo-area {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.header-logo-img {
+    /* background-color: red; */
+    height: 40px;
+    width: 100%;
+    /* position: absolute;
+    top: -40%;
+    left: 0%; */
+    /* transform: translate(-50%, -50%); */
+}
+
+.logo-link {
+    font-size: 1.25rem;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #000;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.logo-icon {
+    color: var(--primary);
+}
+
+/* 2. Middle Area: Time + Nav */
+.middle-area {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    /* Space between Time and Nav */
+    align-items: center;
+}
+
+
+
+@media (min-width: 1024px) {
+    .time-display {
+        display: block;
+        margin-right: auto;
+        /* Push to left of center */
+        padding-left: 4rem;
+        /* Optical balance */
+    }
+}
+
+.desktop-nav {
+    display: none;
+}
+
+@media (min-width: 1024px) {
+    .desktop-nav {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-left: auto;
+        /* Push to right of center */
+        padding-right: 4rem;
+        /* Optical balance */
+    }
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #000;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.nav-separator {
+    color: #000;
+    font-size: 0.85rem;
+    padding: 0 0.25rem;
+}
+
+/* 3. CTA Area */
+.cta-area {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    display: none;
+    /* Hidden on mobile by default */
+}
+
+@media (min-width: 1024px) {
+    .cta-area {
+        display: flex;
+    }
+}
+
+.cta-link {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    color: #000;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+}
+
+/* Mobile Controls */
+.mobile-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+@media (min-width: 1024px) {
+    .mobile-controls {
+        display: none;
+    }
+}
+
+/* Use the custom hamburger from before */
+.hamburger-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 24px;
+}
+
+.bar {
+    width: 100%;
+    height: 2px;
+    background-color: #000;
+    transition: all 0.3s ease;
+}
+
+.hamburger-btn:hover .bar {
+    opacity: 0.7;
+}
+
+/* Mobile Menu Overlay */
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 1.5rem;
+    transform: translateY(-100%);
+    /* Slide down from top */
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mobile-menu-overlay.open {
+    transform: translateY(0);
+}
+
+.mobile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4rem;
+}
+
+.mobile-menu-title {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #9ca3af;
+    /* gray-400 */
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #000;
+    transition: transform 0.3s;
+}
+
+.close-btn:hover {
+    transform: rotate(90deg);
+}
+
+.mobile-links {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.mobile-link-item {
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem;
+    border-bottom: 1px solid #f3f4f6;
+    padding-bottom: 1rem;
+}
+
+.mobile-link-number {
+    font-size: 1rem;
+    color: var(--primary);
+    font-weight: 600;
+    font-family: 'Courier New', monospace;
+    /* Monospaced for tech/editorial feel */
+}
+
+.mobile-link {
+    font-size: 3rem;
+    /* Huge text */
+    font-weight: 400;
+    /* Light weight for contrast */
+    color: #000;
+    text-decoration: none;
+    text-transform: uppercase;
+    line-height: 1;
+    letter-spacing: -1px;
+}
+
+.mobile-menu-footer {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.mobile-socials {
+    display: flex;
+    gap: 2rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #6b7280;
+}
+
+.mobile-cta-btn {
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 99px;
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
