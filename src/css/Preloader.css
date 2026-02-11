@@ -1,0 +1,104 @@
+/* Preloader.css */
+.preloader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #ffffff;
+    /* Dark background for X-ray contrast */
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    color: #fff;
+    font-family: 'Outfit', sans-serif;
+}
+
+/* Container for the X-ray Effect */
+.xray-wrapper {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+/* Base Layer: The "Normal" Pet (Visible outside the scanner beam) */
+.xray-base {
+    position: absolute;
+    font-size: 8rem;
+    color: #333;
+    /* Dark silhouette */
+    z-index: 1;
+}
+
+/* Top Layer: The "Skeleton/X-ray" Pet (Visible INSIDE the scanner beam) */
+.xray-reveal {
+    position: absolute;
+    font-size: 8rem;
+    color: var(--primary);
+    /* Glowing Cyan X-ray color */
+    z-index: 2;
+    clip-path: inset(0 0 100% 0);
+    /* Initially hidden */
+    animation: scanReveal 2s ease-in-out infinite alternate;
+    text-shadow: 0 0 10px var(--primary), 0 0 20px var(--primary);
+}
+
+/* The Scanner Beam Line */
+.scanner-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    /* Thickness of the laser beam */
+    background: #000000;
+    box-shadow: 0 0 15px #000000, 0 0 30px #000000;
+    z-index: 3;
+    animation: scanMove 2s ease-in-out infinite alternate;
+}
+
+/* Animations */
+@keyframes scanMove {
+    0% {
+        top: 0%;
+    }
+
+    100% {
+        top: 100%;
+    }
+}
+
+@keyframes scanReveal {
+    0% {
+        clip-path: inset(0 0 100% 0);
+        /* Reveal none (top is 0) */
+    }
+
+    100% {
+        clip-path: inset(0 0 0 0);
+        /* Reveal all */
+    }
+}
+
+/* Progress Text */
+.progress-text {
+    font-size: 1.5rem;
+    color: #0f0f0f;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.loading-label {
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
