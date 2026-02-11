@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "target": "es2020",
+        "module": "esnext",
+        "lib": [
+            "dom",
+            "esnext"
+        ],
+        "strict": true,
+        "moduleResolution": "node",
+        "jsx": "react-jsx",
+        "allowJs": true,
+        "noEmit": true
+    },
+    "include": [
+        "./**/*"
+    ]
+}
