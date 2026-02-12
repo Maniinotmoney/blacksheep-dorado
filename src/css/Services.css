@@ -1,0 +1,113 @@
+/* Services.css */
+.services-section {
+    padding: 5rem 0;
+    background: linear-gradient(to bottom, var(--primary-fade), #ffffff);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.service-card {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    border: 1px solid #fff0f3;
+    transition: all 0.3s;
+}
+
+.service-card:hover {
+    border-color: #fbcfe8;
+    /* pink-200 */
+}
+
+.service-card.highlight-service {
+    border: 2px solid var(--primary);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    transform: scale(1.02);
+}
+
+.service-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.service-icon-box {
+    color: var(--primary);
+    font-size: 1.25rem;
+}
+
+.service-title {
+    font-weight: 700;
+    font-size: 1.125rem;
+    margin: 0;
+}
+
+.service-list {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin: 0;
+    padding-left: 0.5rem;
+    list-style: none;
+}
+
+.service-text {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin: 0;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+.service-cta-card {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    border: 1px solid #fff0f3;
+    background: linear-gradient(to right, #ffffff, #fff0f3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .service-cta-card {
+        grid-column: span 3;
+        flex-direction: row;
+        text-align: left;
+    }
+}
+
+.btn-black {
+    background-color: #000;
+    color: #fff;
+    padding: 0.75rem 2rem;
+    border-radius: 9999px;
+    font-weight: 600;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+.btn-black:hover {
+    background-color: #1f2937;
+}

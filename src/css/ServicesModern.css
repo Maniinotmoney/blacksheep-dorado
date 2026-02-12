@@ -1,0 +1,187 @@
+/* ServicesModern.css */
+.services-modern-section {
+    position: relative;
+    background-color: #ffffff;
+    color: #000000;
+    min-height: 100vh;
+    padding: 2rem 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.modern-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    width: 100%;
+    z-index: 2;
+    position: relative;
+}
+
+/* Header */
+.modern-header {
+    margin-bottom: 4rem;
+    padding-top: 4rem;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding-bottom: 2rem;
+}
+
+.modern-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    margin: 0;
+    text-align: center;
+}
+
+.modern-subtitle {
+    font-size: 1rem;
+    color: #666;
+    text-align: center;
+    margin-top: 1rem;
+    max-width: 400px;
+}
+
+/* List */
+.services-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.service-item {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 2rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.service-item:hover {
+    opacity: 1;
+}
+
+.services-list:hover .service-item:not(:hover) {
+    opacity: 0.3;
+}
+
+.service-name {
+    font-size: clamp(3rem, 7vw, 7rem);
+    font-weight: 800;
+    text-transform: uppercase;
+    line-height: 0.9;
+    margin: 0;
+    letter-spacing: -0.03em;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    background: linear-gradient(to right, #000 50%, #555 50%);
+    background-size: 200% 100%;
+    background-position: 0% 0%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.service-item:hover .service-name {
+    transform: translateX(20px);
+    background-position: 100% 0%;
+}
+
+.service-meta {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.service-id {
+    font-family: monospace;
+    opacity: 0.5;
+}
+
+.service-arrow {
+    font-size: 2rem;
+    transform: rotate(-45deg);
+    transition: transform 0.3s ease;
+}
+
+.service-item:hover .service-arrow {
+    transform: rotate(0deg) translateX(10px);
+}
+
+/* Hover Reveal Image */
+.hover-reveal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 300px;
+    /* Base size */
+    height: 400px;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+    border-radius: 8px;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    mix-blend-mode: multiply;
+    /* Optional cool effect */
+}
+
+.hover-reveal.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.hover-reveal-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Modal / Overlay for clicking */
+.service-details-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.details-content {
+    max-width: 800px;
+    width: 100%;
+    background: #fff;
+    padding: 3rem;
+    border: 1px solid #eee;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Mobile Tweaks */
+@media (max-width: 768px) {
+    .service-name {
+        font-size: 1.8rem;
+    }
+
+    .service-item:hover .service-name {
+        transform: translateX(10px);
+    }
+
+    .hover-reveal {
+        display: none;
+        /* Hide floating image on mobile */
+    }
+}
