@@ -1,4 +1,3 @@
-/* Hero.css */
 .hero {
     position: relative;
     width: 100%;
@@ -6,7 +5,7 @@
     background-color: #fff;
     overflow: hidden;
     padding-top: 80px;
-    /* Space for header */
+
 }
 
 .grid-container {
@@ -50,7 +49,7 @@
     overflow: hidden;
 }
 
-/* Helper Classes extracted from inline styles */
+
 
 
 .blend-image {
@@ -64,7 +63,7 @@
     color: #000;
 }
 
-/* Animations */
+
 @keyframes dropIn {
     0% {
         opacity: 0;
@@ -98,11 +97,11 @@
 
 .grid-item {
     opacity: 0;
-    /* Hidden initially */
+
     animation: dropIn 0.8s ease-out forwards;
 }
 
-/* Staggered Delays */
+
 .item-1 {
     animation-delay: 0.2s;
 }
@@ -123,7 +122,7 @@
     animation-delay: 1.0s;
 }
 
-/* Specific Item Positioning for Desktop */
+
 .item-1 {
     top: 15%;
     left: 5%;
@@ -190,10 +189,10 @@
 
 
 
-/* Mobile Responsive (max-width: 768px) - Option 2: Hype Slider */
+
 @media (max-width: 768px) {
     .hero {
-        height: fit-content;
+        height: 80vh;
         /* background-color: rgb(0, 255, 89); */
         min-height: 80vh;
         padding-top: 80px;
@@ -206,25 +205,25 @@
     .grid-container {
         display: flex;
         gap: 1.5rem;
-        overflow-x: auto;
+        overflow-x: hidden;
         overflow-y: hidden;
         scroll-snap-type: x mandatory;
         padding: 1vh 7.5vw;
-        /* Center the first card (100 - 85) / 2 */
+
         width: 100%;
-        height: 50vh;
+        height: 60vh;
         /* background-color: green; */
-        /* Fixed height for slider area */
+
         align-items: center;
         scrollbar-width: none;
-        /* Firefox */
+
         -ms-overflow-style: none;
-        /* IE/Edge */
+
     }
 
     .grid-container::-webkit-scrollbar {
         display: none;
-        /* Chrome/Safari */
+
     }
 
     .grid-item {
@@ -233,17 +232,17 @@
         left: auto !important;
         right: auto !important;
         min-width: 85vw;
-        height: 100% !important;
+        height: 55vh !important;
         scroll-snap-align: center;
 
         overflow: hidden;
         border-radius: 1.5rem;
         margin: 0;
-        /* box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); */
+
         display: flex !important;
-        /* Force all to show */
+
         transition: transform 0.1s ease-out;
-        /* Smooth out the skew jitters */
+
     }
 
     .hero-image {
@@ -253,7 +252,7 @@
 
     }
 
-    /* Reset/Adjust specific item styles for mobile homogeneity */
+
     .color-box-content {
         background-color: red;
         border-radius: 1.5rem;
@@ -268,7 +267,7 @@
         height: auto !important;
     }
 
-    /* Caption Overlay */
+
     .hero-caption {
         position: absolute;
         bottom: 1.5rem;
@@ -285,34 +284,39 @@
 
     .text-black {
         color: #fff !important;
-        /* Force white text on mobile overlays */
+
     }
 
     .big-text-container {
-        position: absolute;
-        /* bottom: 0vh; */
+        position: relative;
+        top: auto;
+        bottom: auto;
         left: 0;
+        padding: 4vh 0 2vh 0;
         width: 100%;
-        height: 20vh;
+        height: auto;
+        overflow: visible;
+        background-color: transparent;
         margin: 0;
-        /* background-color: red; */
-        padding: 0;
         z-index: 5;
         text-align: left;
         padding-left: 7.5vw;
-        /* Align with slider padding */
     }
 
+
+
     .big-text {
-        font-size: 5rem;
-        /* font-size: 18vw; */
+        font-size: clamp(3.5rem, 16vw, 6.5rem);
         line-height: 1;
-        /* Tighter leading for stacked text */
+
+
     }
+
+
 
 
     .big-text br {
         display: block;
-        /* Force break on mobile */
+
     }
 }
