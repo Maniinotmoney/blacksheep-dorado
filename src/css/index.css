@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+@import './Pages.css';
+@import './Team.css';
+@import './AboutSticky.css';
+@import './AboutBento.css';
+@import './AboutLayered.css';
+@import './AboutManifesto.css';
+
+:root {
+  /* Colors */
+  --primary: #045773;
+  --primary-fade: #04577394;
+  --heading-hero: #083442;
+  /* Brand Pink */
+  --primary-light: #FFF0F3;
+  --secondary: #0a5353;
+  --text-dark: #1F2937;
+  --text-light: #6B7280;
+  --bg-gradient: linear-gradient(180deg, #c7f1ff 0%, rgba(255, 255, 255, 1) 100%);
+  --white: #ffffff;
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+  --spacing-xl: 8rem;
+
+  /* Typography */
+  --font-family: Helvetica, Arial, sans-serif;
+
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+
+  /* Container */
+  --container-width: 1350px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background: var(--bg-gradient);
+  color: var(--text-dark);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: var(--font-family);
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing-sm);
+}
+
+/* Utilities */
+.flex {
+  display: flex;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.gap-sm {
+  gap: var(--spacing-sm);
+}
+
+.gap-md {
+  gap: var(--spacing-md);
+}
+
+.btn-primary {
+  background-color: #000;
+  /* Black button as seen in screenshot */
+  color: var(--white);
+  padding: 12px 24px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  transition: opacity 0.3s;
+}
+
+.btn-primary:hover {
+  opacity: 0.8;
+}
+
+.text-primary {
+  color: var(--primary);
+}
+
+.text-h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.text-h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.text-h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.text-body {
+  font-size: 1rem;
+  color: var(--text-light);
+}
+
+/* Decoration Stars */
+.star {
+  color: var(--secondary);
+  position: absolute;
+  font-size: 1.5rem;
+}

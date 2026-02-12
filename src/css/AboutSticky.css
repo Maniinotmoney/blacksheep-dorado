@@ -1,0 +1,96 @@
+/* Sticky Narrative Layout (Option 2) */
+.about-sticky-container {
+    display: flex;
+    flex-direction: column-reverse;
+    /* Mobile: Image on top/bottom? Usually text first is better for SEO/mobile flow */
+    gap: 4rem;
+    position: relative;
+    padding-bottom: 4rem;
+}
+
+@media (min-width: 1024px) {
+    .about-sticky-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6rem;
+        align-items: start;
+    }
+}
+
+.about-sticky-content {
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+    /* Space between narrative sections */
+    padding-top: 2rem;
+    padding-bottom: 6rem;
+}
+
+.narrative-block {
+    opacity: 0.9;
+    transition: opacity 0.5s ease;
+}
+
+.narrative-block:hover {
+    opacity: 1;
+}
+
+.about-sticky-visual {
+    position: relative;
+    height: 100%;
+}
+
+@media (min-width: 1024px) {
+    .about-sticky-visual {
+        position: sticky;
+        top: 8rem;
+        /* Offset for header */
+        height: calc(100vh - 12rem);
+        /* Full height minus offsets */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.sticky-img-wrapper {
+    width: 100%;
+    height: 100%;
+    border-radius: var(--radius-lg, 24px);
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.sticky-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Enhancements for narrative text */
+.narrative-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--primary, #045773);
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+.narrative-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background-color: var(--secondary, #0a5353);
+    border-radius: 2px;
+}
+
+.narrative-text {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--text-dark);
+}
