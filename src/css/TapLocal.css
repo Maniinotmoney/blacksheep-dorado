@@ -1,0 +1,120 @@
+.tap-local {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    
+    overflow: hidden;
+    color: #fff;
+    background-color: #e8e8e800;
+    
+    font-family: 'Oswald', sans-serif;
+    
+}
+
+.tap-local-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+.tap-local-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    
+    z-index: -1;
+}
+
+.tap-local-content {
+    position: absolute;
+    z-index: 1;
+    padding: 2rem;
+    text-align: center;
+    
+    max-width: 50vw;
+    bottom: 5%;
+    
+    left: 25%;
+    
+}
+
+.tap-local-quote {
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    font-family: 'Outfit', sans-serif;
+    
+}
+
+.tap-local-heading {
+    font-size: 3.5rem;
+    
+    font-weight: 700;
+    
+    text-transform: uppercase;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    font-family: 'Oswald', sans-serif;
+    
+}
+
+.tap-local-divider {
+    width: 100px;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.7);
+    margin: 1rem 0;
+}
+
+.tap-local-subtext {
+    font-size: 1.1rem;
+    font-weight: 400;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    font-family: 'Outfit', sans-serif;
+}
+
+.tap-local-subtext strong {
+    font-weight: 700;
+}
+
+
+@media (max-width: 768px) {
+    .tap-local {
+        height: 100vh;
+        padding: 4rem 0;
+        justify-content: center;
+        text-align: center;
+        
+    }
+
+    .tap-local-content {
+        left: 0;
+        bottom: 10%;
+        width: 100%;
+        max-width: 100%;
+        padding: 0 1.5rem;
+        text-align: center;
+        
+    }
+
+    .tap-local-heading {
+        font-size: 1.2rem;
+    }
+
+
+}
