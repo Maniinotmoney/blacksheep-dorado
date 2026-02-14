@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../css/Preloader.css';
-import heroDentalDog from '../assets/hero_dental_dog.jpg';
+import heroDentalDog from '../assets/dorado-logo-big-D.png';
 
 const Preloader = ({ onLoadComplete }) => {
     const [isExiting, setIsExiting] = useState(false);
